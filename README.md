@@ -1,4 +1,3 @@
-# Anishere_Bokeh_Contribution
 # FUNDAMENTALS OF DATA VISUALIZATION IN BOKEH
 I know you are thinking "Why Bokeh?". Well relax, I will get there. First, let's start with the "What is?".
 
