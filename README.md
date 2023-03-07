@@ -81,4 +81,4 @@ my_viz.scatter(x = trips["trip_distance"], y = trips["total_amount"])
 # Show visualization
 show(my_viz)
 ```
-<img src="https://github.com/anisheremariam/Anishere_Mariam/blob/main/bokeh_scatterplot.png" alt="Scatter Plot" title="Scatter Plot">
+<img src="https://github.com/anisheremariam/Bokeh_Outreachy/blob/main/bokeh_scatterplot.png" alt="Scatter Plot" title="Scatter Plot">
