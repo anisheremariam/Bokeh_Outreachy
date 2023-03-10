@@ -13,72 +13,70 @@ The major concept of Bokeh is that graphs are built up one layer at a time. The 
 * Create a blank canvas;
 * Insert desired glyph into canvas;
 * Show Visualization.
+#
 
-## IMPORT LIBRARIES
-Here, we import the neccesary libraries like the pandas or numpy for data preparation and bokeh for visualization.
+The SCATTER PLOT representation: This can be achieved by using the ```.scatter``` or ```.circle/diamond``` and other shapes as markers.
+(check 'https://docs.bokeh.org/en/dev-3.1/docs/user_guide/basic/scatters.html' for available markers)
 ```
-#import libraries
+# import libraries
+import pandas as pd  #Data Preparation
+import pyarrow.parquet as pq #To view the paraquet format
+from bokeh.io import output_file, output_notebook #for Output
+from bokeh.plotting import figure, show #for charts
 
-#data preparation
-import pandas as pd  
+# rendering mode
+output_file('output_file_test.html', title='Empty Bokeh Figure') # for a static html
+#output_notebook() # for inline jupyter notebook
 
-#to view the paraquet format
-import pyarrow.parquet as pq 
-
-#for output
-from bokeh.io import output_file, output_notebook 
-
-#for charts
-from bokeh.plotting import figure, show 
-```
-
-## PREPARE DATA
-This stage is basically the Data Wrangling process where we clean, transform, and analyse our data for visualization.
-
-## SELECT AN OUTPUT MODE
-With Bokeh, you cannot only view your output inline in a Jupyter Notebook but also on a static HTML with several toggle tools like the pan, zoom, etc.
-```
-#for static html
-output_file('output_file_test.html', title='Empty Bokeh Figure')
-
-#for inline Jupyter Notebook
-output_notebook()
-```
-While rendereing multiple modes in a single project, it is pertinent to subsequently ```reset_output``` in order to clear the past mode from recurring.
-```
-# Import reset_output (only needed once) 
-from bokeh.plotting import reset_output
-
-# Use reset_output() between subsequent show() calls, as needed
-reset_output()
-```
-
-## CREATE A BLANK CANVAS
-Aesthetic is a very important aspect in visualisation. In order to send a clear and understanding message to the audience, your Data Visualization has to be appealing, direct and concise with perfect fonts size, color and background. Bokeh provides a layer to interact and customize our figure canvas with simple scripts.
-```
-# Create a blank figure canvas
-my_viz = figure(title = "Relationship Between the Time Taken and Price of Trip",
-                height = 500, width = 800,
-               x_axis_label = "Time Taken to complete a Trip (min)", y_axis_label = "Price of Trip (USD)",
-               x_range = (1, 146), y_range = (1,1250))
- ```
-for more details on figure parameters, visit; https://docs.bokeh.org/en/latest/docs/user_guide.html.
- 
-## INSERT GLYPH
-Glyph is a graphical shape or marker that is used to represent your data. In simple terms, Glyphs are Graphs. We will be working on several types of glyphs representation in this series. 
-
-The first is the SCATTER PLOT representation. This can be achieved by using the ```.scatter``` or ```.circle/diamond``` and other shapes as markers
-```
-# Create a blank figure canvas
+# create a blank figure canvas
 my_viz = figure(title = "Relationship Between the Time Taken and Price of Trip",
                 height = 500, width = 800,
                x_axis_label = "Time Taken to complete a Trip (min)", y_axis_label = "Price of Trip (USD)",
                x_range = (1, 146), y_range = (1,1250))
 
-# Insert glyph
+# insert glyph
 my_viz.scatter(x = trips["trip_distance"], y = trips["total_amount"])
 
-# Show visualization
+# show visualization
 show(my_viz)
 ```
 <img src="https://github.com/anisheremariam/Bokeh_Outreachy/blob/main/bokeh_scatterplot.png" alt="Scatter Plot" title="Scatter Plot">
+
+#
+
+The DOUBLE PLOT representation: One canva can be used to represent more than one plot. Here is an example with two basic plots (the line and bar plot) on a single canva.
+```
+# import libraries
+import pandas as pd   # for data preparation
+import pyarrow.parquet as pq    # to view the paraquet format
+from bokeh.io import output_file, output_notebook   # for Output
+from bokeh.plotting import figure, show  # for charts
+from bokeh.io import curdoc   # to apply theme
+
+# rendering mode
+output_file('output_file_test.html', title='Empty Bokeh Figure') # for a static html
+#output_notebook() # for inline jupyter notebook
+
+# create a blank figure canvas
+my_viz = figure(title = "Daily Tips and Tolls Amount",
+                height = 500, width = 800,
+               x_axis_label = "November 2022", y_axis_label = "Amount (USD)")
+               
+# change theme to dark
+curdoc().theme = "dark_minimal"
+
+# insert line_glyph
+my_viz.line(x = day_trip.index, y = day_trip["tip_amount"],
+           color = "orange", line_width = 3, legend_label = "Tip Amount")
+
+# insert bar_glyph
+my_viz.vbar(x = day_trip.index, top = day_trip["tolls_amount"],
+           color = "green", width = 0.75, legend_label = "Tolls Amount")
+
+# arrange legend
+my_viz.legend.location = 'top_left'
+
+# show visualization
+show(my_viz)
+```
+<img src="https://github.com/anisheremariam/Bokeh_Outreachy/blob/main/bokeh_doubleplot.png" alt="Double Plot" title="Double Plot">
