@@ -1,5 +1,5 @@
 ## Author: Anishere Mariam Adeola
-## Date: March, 2023
+## Date: March 2023
 # FUNDAMENTALS OF DATA VISUALIZATION IN BOKEH
 I know you are thinking "Why Bokeh?". Well relax, I will get there. First, let's start with "What is Bokeh?".
 
