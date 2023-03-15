@@ -1,4 +1,4 @@
-<div style="background-color:#33475b;"> <img src="bokeh.png" alt="" /> </div>
+<div> <img src="bokeh.png" alt="" width = 400px height = 200px/> </div>
 <header id="header">
     <div>
         <h1 style="color:#33475b">FUNDAMENTALS OF BOKEH VISUALIZATIONS</h1>
@@ -40,7 +40,8 @@ trips.head()
 Check [here](https://pandas.pydata.org/docs/user_guide/io.html) to find out how to read other formats.
 
 ## BASIC VISUALIZATIONS IN BOKEH
-**The SCATTER PLOT representation:** This can be achieved by using the ```.scatter``` or ```.circle/diamond``` and other shapes as markers.
+### SCATTER PLOT
+This can be achieved by using the ```.scatter``` or ```.circle/diamond``` and other shapes as markers.
 (check [here](https://docs.bokeh.org/en/dev-3.1/docs/user_guide/basic/scatters.html) for available markers)
 ```
 # import libraries
@@ -65,10 +66,12 @@ my_viz.scatter(x = trips["trip_distance"], y = trips["total_amount"])
 show(my_viz)
 ```
 <img src="bokeh_scatterplot.png" alt="Scatter Plot" title="Scatter Plot">
+    
+<hr class = "dashed-line">
+    
+### DOUBLE PLOT
 
-#
-
-**The DOUBLE PLOT representation:** One canva can be used to represent more than one plot. Here is an example with two basic plots (the line and bar plot) on a single canva.
+One canva can be used to represent more than one plot. Here is an example with two basic plots (the line and bar plot) on a single canva.
 ```
 # import libraries
 import pandas as pd   # for data preparation
@@ -102,11 +105,12 @@ my_viz.legend.location = 'top_left'
 # show visualization
 show(my_viz)
 ```
-<img src="bokeh_doubleplot.png" alt="Double Plot" title="Double Plot">
+<img src="bokeh_doubleplot.png" alt="Double Plot" title="Double Plot"> 
 
-#
+<hr class = "dashed-line">
 
-**The ROD PLOT representation:** The scatter plot can be represented with several shapes like the circle, rectangle squares, etc. The rod plot is a rectangular scatter plot tilted by an angle (60 deg). You can think of it as a "Fancy Scatter Plot".
+### ROD PLOT
+The scatter plot can be represented with several shapes like the circle, rectangle squares, etc. The rod plot is a rectangular scatter plot tilted by an angle (60 deg). You can think of it as a "Fancy Scatter Plot".
 ```
 # import libraries
 import pandas as pd  #Data Preparation
@@ -129,11 +133,12 @@ p.rect(x=pick_up.index, y=pick_up["tip_amount"], width=0.2, height=40, color="ma
 
 show(p)
 ```
-<img src="/bokeh_magenta rodplot.png" alt="Rod Plot" title="Rod Plot">
+<img src="/bokeh_rodplot.png" alt="Rod Plot" title="Rod Plot">
 
-#
+<hr class = "dashed-line">
 
-**The BOKEH SUBPLOTS:** I am sure you are familiar with subplot function in Matplotlib but it is okay if you are not, you can catch up on the [Matplotlib Library](https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html). In Bokeh library, we can build a related interface like that of the subplot. 
+### BOKEH SUBPLOTS
+I am sure you are familiar with subplot function in Matplotlib but it is okay if you are not, you can catch up on the [Matplotlib Library](https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html). In Bokeh library, we can build a related interface like that of the subplot. 
 ```
 # import libraries
 import pandas as pd  #Data Preparation
@@ -162,9 +167,10 @@ show(row(v1,v2,v3))
 ```
 <img src="bokeh_multiplot.PNG" alt="Bokeh SubPlot" title="Bokeh SubPlot">
 
-#
+<hr class = "dashed-line">
 
-**The BAR PLOT representation:** One canva can be used to represent more than one plot. Here is an example with two basic plots (the line and bar plot) on a single canva.
+### BAR PLOT
+One canva can be used to represent more than one plot. Here is an example with two basic plots (the line and bar plot) on a single canva.
 ```
 # import libraries
 import pandas as pd   # for data preparation
