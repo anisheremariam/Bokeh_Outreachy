@@ -170,7 +170,7 @@ show(row(v1,v2,v3))
 <hr class = "dashed-line">
 
 ### BAR PLOT
-One canva can be used to represent more than one plot. Here is an example with two basic plots (the line and bar plot) on a single canva.
+Bar graph is one of the most common graphical representation of categorical data. The representation below shows a basic bar plot with hover tools embedded.
 ```
 # import libraries
 import pandas as pd   # for data preparation
