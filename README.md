@@ -133,7 +133,7 @@ p.rect(x=pick_up.index, y=pick_up["tip_amount"], width=0.2, height=40, color="ma
 
 show(p)
 ```
-<img src="/bokeh_rodplot.png" alt="Rod Plot" title="Rod Plot">
+<img src="bokeh_rodplot.png" alt="Rod Plot" title="Rod Plot">
 
 <hr class = "dashed-line">
 
